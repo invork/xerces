@@ -58,39 +58,29 @@
 package javax.xml.parsers;
 
 /**
- * This error is thrown if there is a configuration problem when creating
- * new factory instances.
+ * This error is thrown if there is a configuration problem when creating new factory instances.
  * <br>
- * This error will also be thrown when the class of a Factory specified by
- * a system property, or the class of the default system parser factory,
- * cannot be loaded or instantiated.
+ * This error will also be thrown when the class of a Factory specified by a system property, or the
+ * class of the default system parser factory, cannot be loaded or instantiated. <br>
+ * Implementation or Application developers should never need to directly construct or catch errors
+ * of this type. <br>
  * <br>
- * Implementation or Application developers should never need to directly
- * construct or catch errors of this type.
+ * <b>ATTENTION:</b> THIS IMPLEMENTATION OF THE "JAVAX.XML.PARSER" CLASSES IS NOT THE OFFICIAL
+ * REFERENCE IMPLEMENTATION OF THE JAVA SPECIFICATION REQUEST 5 FOUND AT <a
+ * href="http://java.sun.com/aboutJava/communityprocess/jsr/jsr_005_xml.html">
+ * http://java.sun.com/aboutJava/communityprocess/jsr/jsr_005_xml.html </a><br>
+ * THIS IMPLEMENTATION IS CONFORMANT TO THE "JAVA API FOR XML PARSING" SPECIFICATION VERSION 1.1
+ * PUBLIC REVIEW 1 BY JAMES DUNCAN DAVIDSON PUBLISHED BY SUN MICROSYSTEMS ON NOV. 2, 2000 AND FOUND
+ * AT <a href="http://java.sun.com/xml">http://java.sun.com/xml</a> <br>
  * <br>
- * <br>
- * <b>ATTENTION:</b> THIS IMPLEMENTATION OF THE "JAVAX.XML.PARSER" CLASSES
- *   IS NOT THE OFFICIAL REFERENCE IMPLEMENTATION OF THE JAVA SPECIFICATION
- *   REQUEST 5 FOUND AT
- *   <a href="http://java.sun.com/aboutJava/communityprocess/jsr/jsr_005_xml.html">
- *   http://java.sun.com/aboutJava/communityprocess/jsr/jsr_005_xml.html
- *   </a><br>
- *   THIS IMPLEMENTATION IS CONFORMANT TO THE "JAVA API FOR XML PARSING"
- *   SPECIFICATION VERSION 1.1 PUBLIC REVIEW 1 BY JAMES DUNCAN DAVIDSON
- *   PUBLISHED BY SUN MICROSYSTEMS ON NOV. 2, 2000 AND FOUND AT
- *   <a href="http://java.sun.com/xml">http://java.sun.com/xml</a>
- * <br>
- * <br>
- * <b>THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED
- * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
- * EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
- * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
- * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
- * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
- * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * <b>THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+ * GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+ * OF SUCH DAMAGE.
  *
  * @author <a href="pier@betaversion.org">Pierpaolo Fumagalli</a>
  * @author Copyright &copy; 2000 The Apache Software Foundation.
@@ -98,87 +88,71 @@ package javax.xml.parsers;
  */
 public class FactoryConfigurationError extends Error {
 
-    private Exception exception;
+  private Exception exception;
 
-    /**
-     * Create a new <code>FactoryConfigurationError</code> with no
-     * detail mesage.
-     */
+  /** Create a new <code>FactoryConfigurationError</code> with no detail mesage. */
+  public FactoryConfigurationError() {
+    super();
+    this.exception = null;
+  }
 
-     public FactoryConfigurationError() {
-         super();
-    	 this.exception = null; 
-     }
+  /**
+   * Create a new <code>FactoryConfigurationError</code> with the <code>String </code> specified as
+   * an error message.
+   *
+   * @param msg The error message for the exception.
+   */
+  public FactoryConfigurationError(String msg) {
+    super(msg);
+    this.exception = null;
+  }
 
-    /**
-     * Create a new <code>FactoryConfigurationError</code> with
-     * the <code>String </code> specified as an error message.
-     *
-     * @param msg The error message for the exception.
-     */
-    
-    public FactoryConfigurationError(String msg) {
-        super(msg);
-        this.exception = null;
+  /**
+   * Create a new <code>FactoryConfigurationError</code> with a given <code>Exception</code> base
+   * cause of the error.
+   *
+   * @param e The exception to be encapsulated in a FactoryConfigurationError.
+   */
+  public FactoryConfigurationError(Exception e) {
+    super();
+    this.exception = e;
+  }
+
+  /**
+   * Create a new <code>FactoryConfigurationError</code> with the given <code>Exception</code> base
+   * cause and detail message.
+   *
+   * @param e The exception to be encapsulated in a FactoryConfigurationError
+   * @param msg The detail message.
+   * @param e The exception to be wrapped in a FactoryConfigurationError
+   */
+  public FactoryConfigurationError(Exception e, String msg) {
+    super(msg);
+    this.exception = e;
+  }
+
+  /**
+   * Return the message (if any) for this error . If there is no message for the exception and there
+   * is an encapsulated exception then the message of that exception will be returned.
+   *
+   * @return The error message.
+   */
+  public String getMessage() {
+    String message = super.getMessage();
+
+    if (message == null && exception != null) {
+      return exception.getMessage();
     }
 
+    return message;
+  }
 
-    /**
-     * Create a new <code>FactoryConfigurationError</code> with a
-     * given <code>Exception</code> base cause of the error.
-     *
-     * @param e The exception to be encapsulated in a
-     * FactoryConfigurationError.
-     */
-    
-    public FactoryConfigurationError(Exception e) {
-        super();
-        this.exception = e;
-    }
-
-    /**
-     * Create a new <code>FactoryConfigurationError</code> with the
-     * given <code>Exception</code> base cause and detail message.
-     *
-     * @param e The exception to be encapsulated in a
-     * FactoryConfigurationError
-     * @param msg The detail message.
-     * @param e The exception to be wrapped in a FactoryConfigurationError
-     */
-    
-    public FactoryConfigurationError(Exception e, String msg) {
-        super(msg);
-        this.exception = e;
-    }
-
-
-    /**
-     * Return the message (if any) for this error . If there is no
-     * message for the exception and there is an encapsulated
-     * exception then the message of that exception will be returned.
-     *
-     * @return The error message.
-     */
-    
-    public String getMessage () {
-        String message = super.getMessage ();
-  
-        if (message == null && exception != null) {
-            return exception.getMessage();
-        }
-
-        return message;
-    }
-  
-    /**
-     * Return the actual exception (if any) that caused this exception to
-     * be raised.
-     *
-     * @return The encapsulated exception, or null if there is none.
-     */
-    
-    public Exception getException () {
-        return exception;
-    }
+  /**
+   * Return the actual exception (if any) that caused this exception to be raised.
+   *
+   * @return The encapsulated exception, or null if there is none.
+   */
+  public Exception getException() {
+    return exception;
+  }
 }
-
