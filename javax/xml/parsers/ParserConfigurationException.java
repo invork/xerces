@@ -58,40 +58,30 @@
 package javax.xml.parsers;
 
 /**
- * This exception is thrown if a factory cannot configure a parser given its
- * current configuration parameters.
+ * This exception is thrown if a factory cannot configure a parser given its current configuration
+ * parameters. <br>
+ * For example, if a parser factory cannot create parsers that validate, but have been configured to
+ * do so, it will throw this exception when a parser is requested to via the parser creation
+ * methods. <br>
+ * Application developers are not expected to construct instances of this exception type, but must
+ * catch them in code that obtains parser instances from a factory. <br>
  * <br>
- * For example, if a parser factory cannot create parsers that validate,
- * but have been configured to do so, it will throw this exception when a
- * parser is requested to via the parser creation methods.
+ * <b>ATTENTION:</b> THIS IMPLEMENTATION OF THE "JAVAX.XML.PARSER" CLASSES IS NOT THE OFFICIAL
+ * REFERENCE IMPLEMENTATION OF THE JAVA SPECIFICATION REQUEST 5 FOUND AT <a
+ * href="http://java.sun.com/aboutJava/communityprocess/jsr/jsr_005_xml.html">
+ * http://java.sun.com/aboutJava/communityprocess/jsr/jsr_005_xml.html </a><br>
+ * THIS IMPLEMENTATION IS CONFORMANT TO THE "JAVA API FOR XML PARSING" SPECIFICATION VERSION 1.1
+ * PUBLIC REVIEW 1 BY JAMES DUNCAN DAVIDSON PUBLISHED BY SUN MICROSYSTEMS ON NOV. 2, 2000 AND FOUND
+ * AT <a href="http://java.sun.com/xml">http://java.sun.com/xml</a> <br>
  * <br>
- * Application developers are not expected to construct instances of this
- * exception type, but must catch them in code that obtains parser instances
- * from a factory.
- * <br>
- * <br>
- * <b>ATTENTION:</b> THIS IMPLEMENTATION OF THE "JAVAX.XML.PARSER" CLASSES
- *   IS NOT THE OFFICIAL REFERENCE IMPLEMENTATION OF THE JAVA SPECIFICATION
- *   REQUEST 5 FOUND AT
- *   <a href="http://java.sun.com/aboutJava/communityprocess/jsr/jsr_005_xml.html">
- *   http://java.sun.com/aboutJava/communityprocess/jsr/jsr_005_xml.html
- *   </a><br>
- *   THIS IMPLEMENTATION IS CONFORMANT TO THE "JAVA API FOR XML PARSING"
- *   SPECIFICATION VERSION 1.1 PUBLIC REVIEW 1 BY JAMES DUNCAN DAVIDSON
- *   PUBLISHED BY SUN MICROSYSTEMS ON NOV. 2, 2000 AND FOUND AT
- *   <a href="http://java.sun.com/xml">http://java.sun.com/xml</a>
- * <br>
- * <br>
- * <b>THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED
- * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
- * EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
- * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
- * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
- * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
- * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * <b>THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+ * GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
+ * OF SUCH DAMAGE.
  *
  * @author <a href="pier@betaversion.org">Pierpaolo Fumagalli</a>
  * @author Copyright &copy; 2000 The Apache Software Foundation.
@@ -99,19 +89,13 @@ package javax.xml.parsers;
  */
 public class ParserConfigurationException extends Exception {
 
-    /**
-     * Constructs a new <code>ParserConfigurationException</code> with no
-     * detail message.
-     */
-    public ParserConfigurationException() {
-        super();
-    }
+  /** Constructs a new <code>ParserConfigurationException</code> with no detail message. */
+  public ParserConfigurationException() {
+    super();
+  }
 
-    /**
-     * Constructs a new <code>ParserConfigurationException</code> with the
-     * given detail message.
-     */
-    public ParserConfigurationException(String msg) {
-        super(msg);
-    }
+  /** Constructs a new <code>ParserConfigurationException</code> with the given detail message. */
+  public ParserConfigurationException(String msg) {
+    super(msg);
+  }
 }
