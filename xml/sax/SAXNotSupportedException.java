@@ -4,41 +4,37 @@
 
 // $Id: SAXNotSupportedException.java,v 1.5 2000/05/05 17:47:39 david Exp $
 
-
 package org.xml.sax;
 
 /**
  * Exception class for an unsupported operation.
  *
  * <blockquote>
- * <em>This module, both source code and documentation, is in the
- * Public Domain, and comes with <strong>NO WARRANTY</strong>.</em>
+ *
+ * <em>This module, both source code and documentation, is in the Public Domain, and comes with
+ * <strong>NO WARRANTY</strong>.</em>
+ *
  * </blockquote>
  *
- * <p>An XMLReader will throw this exception when it recognizes a
- * feature or property identifier, but cannot perform the requested
- * operation (setting a state or value).  Other SAX2 applications and
- * extensions may use this class for similar purposes.</p>
+ * <p>An XMLReader will throw this exception when it recognizes a feature or property identifier,
+ * but cannot perform the requested operation (setting a state or value). Other SAX2 applications
+ * and extensions may use this class for similar purposes.
  *
  * @since SAX 2.0
- * @author David Megginson, 
- *         <a href="mailto:sax@megginson.com">sax@megginson.com</a>
+ * @author David Megginson, <a href="mailto:sax@megginson.com">sax@megginson.com</a>
  * @version 2.0
- * @see org.xml.sax.SAXNotRecognizedException 
+ * @see org.xml.sax.SAXNotRecognizedException
  */
-public class SAXNotSupportedException extends SAXException
-{
+public class SAXNotSupportedException extends SAXException {
 
-    /**
-     * Construct a new exception with the given message.
-     *
-     * @param message The text message of the exception.
-     */
-    public SAXNotSupportedException (String message)
-    {
-	super(message);
-    }
-
+  /**
+   * Construct a new exception with the given message.
+   *
+   * @param message The text message of the exception.
+   */
+  public SAXNotSupportedException(String message) {
+    super(message);
+  }
 }
 
 // end of SAXNotSupportedException.java
